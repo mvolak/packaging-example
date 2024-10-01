@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="header-content">
+    <div class="logo">
+      <img src="assets/images/Logo_Bühler_AG.png" alt="Bühler Logo">
+    </div>
+    <div class="info">
+      <span class="time">
+        <span class="material-icons clock-icon">schedule</span>
+        {{ currentTime }}
+      </span>
+      <span class="user">
+        <span class="material-icons user-icon">person</span>
+        Operator
+      </span>
+    </div>
+  </div>
+  <div class="separator-line"></div>
+  <nav class="state-nav" >
+    <div class="state-buttons">
+      <button *ngFor="let state of stateBoxes" [ngClass]="state.state" >
+        <div class="button-content">
+          <div class="status-icon-container">
+            <span class="material-icons status-icon">{{ getIconForState(state.state) }}</span>
+          </div>
+          <div class="button-label">{{ state.id }}</div>
+        </div>
+      </button>
+    </div>
+    <input type="file" #fileInput style="display: none;" (change)="onLoadClick($event)">
+    <div class="action-buttons">
+      <button class="action-btn text-btn" (click)="fileInput.click()">Load Data</button>
+      <button class="action-btn text-btn" (click)="onSaveClick()">Save Data</button>
+    </div>
+  </nav>
+</header>

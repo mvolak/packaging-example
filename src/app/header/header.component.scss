@@ -1,0 +1,219 @@
+
+@import '../../variables';
+
+.header {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+
+  .separator-line {
+    height: 4px; 
+    background-color: #00aa9d; // to match the logo
+    width: 100%;
+    margin-bottom: 10px; 
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    img {
+      height: 60px; 
+      max-width: 100%;
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .time, .user {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
+      .material-icons {
+        font-size: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .state-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-grow: 1;
+    
+    button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, width 0.3s, height 0.3s;
+      font-weight: $font-medium;
+      font-size: 18px; 
+      width: 140px;
+      height: 60px;
+      flex-grow: 1;
+      max-width: 200px;
+
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    
+    .action-btn.text-btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #e0e0e0;
+      color: #333;
+      font-size: 14px;
+      font-weight: medium;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+  
+      &:hover {
+        background-color: #00aa9d; 
+        color: white;
+      }
+  
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 160, 225, 0.5); 
+      }
+    }
+  }
+
+  .state-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: center; 
+  
+    button {
+      position: relative; 
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: $font-medium;
+      font-size: 18px; 
+      width: 140px; // fixed width to make buttons wider
+      height: 60px; 
+
+      flex-grow: 1;
+      max-width: 140px;
+
+      button-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+  
+      .status-icon-container {
+        position: absolute;
+      top: 5px;
+      right: 5px;
+  
+        .status-icon {
+          font-size: 16px;
+        }
+      }
+  
+      .button-label {
+        text-align: center;
+        word-break: break-word;
+      }
+  
+      .material-icons {
+        margin-right: 5px;
+      }
+  
+      &.running { 
+        background-color: #e0e0e0; 
+        color: #000;
+      }
+      &.alarm { 
+        background-color: #ff4444; 
+        color: #fff;
+      }
+      &.warning { 
+        background-color: #ffa500; 
+        color: #000;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  
+      .logo {
+        margin-bottom: 10px;
+      }
+  
+      .info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .state-nav {
+        justify-content: center;
+  
+        .state-buttons {
+          justify-content: center;
+  
+          button {
+            width: calc(50% - 10px);
+            max-width: none;
+            height: 50px;
+            font-size: 16px;
+  
+            .status-icon-container {
+              .status-icon {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        .action-buttons {
+          .action-btn.text-btn {
+            font-size: 12px;
+            padding: 6px 10px;
+          }
+        }
+      }
+  
+      @media (max-width: 480px) {
+        .state-buttons {
+          button {
+            width: 100%;
+            height: 40px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+}

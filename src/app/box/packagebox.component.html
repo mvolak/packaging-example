@@ -1,0 +1,13 @@
+<div class="state-box" [ngClass]="state">
+    <div class="state-box-content">
+        <div class="refresh-icon-container">
+            <span class="material-icons refresh-icon">
+                {{ getIconForState(state) }}
+            </span>
+        </div>
+        <div class="main-content">
+            <div class="material-icons main-icon">{{ icon }}</div>
+            <div class="label">{{ label }}</div>
+        </div>
+    </div>
+</div>

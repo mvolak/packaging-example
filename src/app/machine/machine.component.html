@@ -1,0 +1,11 @@
+<div class="state-machine">
+    <ng-container *ngFor="let box of stateBoxes; let last = last">
+      <app-state-box 
+        [state]="box.state"
+        [icon]="box.icon"
+        [label]="box.label"
+        (refresh)="onRefresh(box.id)">
+      </app-state-box>
+      <div class="connector" *ngIf="!last"></div>
+    </ng-container>
+  </div>
